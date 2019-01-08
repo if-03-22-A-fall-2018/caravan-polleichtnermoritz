@@ -35,7 +35,8 @@ return count;
 
 void delete_caravan(Caravan caravan)
 {
-  for (int i = 0; i < caravan->length; i++){
+  for (int i = 0; i < caravan->length; i++)
+	{
     Node *temp = caravan->head;
     caravan->head = temp->next;
     sfree(temp);
@@ -44,19 +45,19 @@ void delete_caravan(Caravan caravan)
 
 void add_pack_animal(Caravan caravan, PackAnimal animal)
 {
-  if ((animal == 0) || (animal->caravan == caravan)){
+  if ((animal == 0) || (get_caravan(animal) == caravan)){
     return;
   }
   struct Node *current = (struct Node *)malloc(sizeof(struct Node));
 
-  animal->caravan = caravan;
+  get_caravan(animal) = caravan;
 
   current->data = animal;
   current->next = caravan->head;
   caravan->head = current;
 
   caravan->length++;
-  caravan->loadOfCaravan += animal->load;
+  caravan->loadOfCaravan += get_load(animal)
 }
 
 void remove_pack_animal(Caravan caravan, PackAnimal animal)
