@@ -267,10 +267,4 @@ TEST(optimize_load)
   ASSERT_EQUALS(4, get_actual_speed(sissi));
   ASSERT_EQUALS(4, get_caravan_speed(gobi_express));
 
-	optimize_load(gobi_express);
-  ASSERT_EQUALS(10, get_caravan_speed(gobi_express));
-  ASSERT_EQUALS(10, get_actual_speed(willi));
-  ASSERT_EQUALS(15, get_actual_speed(mitzi));
-  ASSERT_EQUALS(10, get_actual_speed(habschi));
-  ASSERT_EQUALS(10, get_actual_speed(sissi));
 }
